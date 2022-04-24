@@ -55,5 +55,12 @@ namespace FastShop.Business
         {
             return await productRepository.IsExists(id);
         }
+
+        public async Task UpdateProduct(UpdateProductRequest request)
+        {
+            var product = mapper.Map<Product>(request);
+            await productRepository.Update(product);
+        
+        }
     }
 }

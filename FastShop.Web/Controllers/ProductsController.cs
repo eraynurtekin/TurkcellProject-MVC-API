@@ -1,5 +1,6 @@
 ﻿using FastShop.Business;
 using FastShop.Dtos.Requests;
+using FastShop.Dtos.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -56,6 +57,36 @@ namespace FastShop.Web.Controllers
                                })
             );
             return selectedItems;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateProducts(int id)
+        {
+            if(await productService.IsExist(id))
+            {
+                ProductListResponse response = await productService.GetProductById(id);
+
+                ViewBag.Categories = GetCategoriesForDropDown();
+                return View(response);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProducts(UpdateProductRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                await productService.UpdateProduct(request);
+                RedirectToAction("Index", "Products");
+            }
+            else
+            {
+                return BadRequest();
+            }
+            ViewBag.Categories = GetCategoriesForDropDown();
+            
+            return View();
         }
     }
 }

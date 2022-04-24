@@ -1,4 +1,6 @@
-﻿using FastShop.DataAccess.Repositories;
+﻿using AutoMapper;
+using FastShop.DataAccess.Repositories;
+using FastShop.Dtos.Responses;
 using FastShop.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,18 @@ namespace FastShop.Business
     public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
-
-        public UserService(IUserRepository userRepository)
+        private IMapper mapper;
+        public UserService(IUserRepository userRepository,IMapper mapper)
         {
             this.userRepository = userRepository;
+            this.mapper = mapper;
+        }
+
+        public IList<UserListResponse> GetUsers()
+        {
+            var users = userRepository.GetAll();
+            var userListResponse = mapper.Map<List<UserListResponse>>(users);
+            return userListResponse;
         }
 
         public User ValidateUser(string userName, string password)

@@ -13,10 +13,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.CategoryName)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.ProductList.ProductName)
-            </th>*@
-            
+
         </tr>
     </thead>
     <tbody>
@@ -29,13 +26,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.CategoryName)
                 </td>
-               @* <td>
-                    @Html.DisplayFor(modelItem => item.ProductList.ProductName)
-                </td>*@
+              
                 
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
                 </td>
             </tr>

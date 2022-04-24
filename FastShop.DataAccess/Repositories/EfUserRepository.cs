@@ -32,6 +32,11 @@ namespace FastShop.DataAccess.Repositories
             await context.SaveChangesAsync();
         }
 
+        public IList<User> GetAll()
+        {
+            return context.Users.ToList();
+        }
+
         public async Task<IList<User>> GetAllEntites()
         {
             return await context.Users.ToListAsync();

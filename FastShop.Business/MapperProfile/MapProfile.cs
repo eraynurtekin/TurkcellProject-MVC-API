@@ -18,6 +18,7 @@ namespace FastShop.Business.MapperProfile
             CreateMap<Category, CategoryListResponse>();
             CreateMap<AddProductRequest, Product>();
             CreateMap<UpdateProductRequest, Product>();
+            CreateMap<User, UserListResponse>();
         }
         
         

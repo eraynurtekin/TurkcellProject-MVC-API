@@ -1,9 +1,11 @@
 ﻿using FastShop.Business;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace FastShop.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Editor")]
     public class CategoriesController : Controller
     {
         private readonly ICategoryService categoryService;

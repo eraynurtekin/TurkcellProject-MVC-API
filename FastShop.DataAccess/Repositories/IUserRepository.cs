@@ -9,6 +9,7 @@ namespace FastShop.DataAccess.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
-       User ValidateUser(string username,string password);
+        IList<User> GetAll();
+        User ValidateUser(string username,string password);
     }
 }

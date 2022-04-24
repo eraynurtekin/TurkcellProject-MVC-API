@@ -15,7 +15,8 @@ namespace FastShop.Web.Controllers
 
         public IActionResult Index()
         {
-          return View();
+            var categories = categoryService.GetCategories();
+            return View(categories);
         }
     }
 }

@@ -22,10 +22,12 @@ namespace FastShop.Business
             this.mapper = mapper;
         }
 
-        public IList<Category> GetCategories()
+        public IList<CategoryListResponse> GetCategories()
         {
             var categories = categoryRepository.GetAll();
-            return categories;  
+            
+            var categoriesListResponse = mapper.Map<List<CategoryListResponse>>(categories);
+            return categoriesListResponse;
         }
     }
 }

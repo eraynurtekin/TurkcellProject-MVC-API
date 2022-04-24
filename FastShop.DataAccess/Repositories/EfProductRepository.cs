@@ -41,6 +41,11 @@ namespace FastShop.DataAccess.Repositories
             return await context.Products.FindAsync(id);
         }
 
+        public async Task<bool> IsExists(int id)
+        {
+            return await context.Products.AnyAsync(p=>p.ProductId == id);
+        }
+
         public async Task Update(Product entity)
         {
             context.Products.Update(entity);

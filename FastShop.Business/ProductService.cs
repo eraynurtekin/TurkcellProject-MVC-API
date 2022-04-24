@@ -34,12 +34,26 @@ namespace FastShop.Business
 
         }
 
+        public async Task<ProductListResponse> GetProductById(int id)
+        {
+            Product product = await productRepository.GetEntityById(id);
+            
+            var productListResponse = mapper.Map<ProductListResponse>(product);
+            
+            return productListResponse;
+        }
+
         public async Task<ICollection<ProductListResponse>> GetProducts()
         {
             var products = await productRepository.GetAllEntites();
 
             var productListResponse = mapper.Map<List<ProductListResponse>>(products);
             return productListResponse;
+        }
+
+        public async Task<bool> IsExist(int id)
+        {
+            return await productRepository.IsExists(id);
         }
     }
 }

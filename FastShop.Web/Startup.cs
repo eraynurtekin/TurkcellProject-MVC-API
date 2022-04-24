@@ -47,6 +47,7 @@ namespace FastShop.Web
             var connectionString = Configuration.GetConnectionString("SqlDb");
             services.AddDbContext<FastShopDbContext>(opt => opt.UseSqlServer(connectionString));
             services.AddAutoMapper(typeof(MapProfile));
+            services.AddSession();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(opt =>
@@ -76,6 +77,7 @@ namespace FastShop.Web
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 

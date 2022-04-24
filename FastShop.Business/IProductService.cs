@@ -13,5 +13,7 @@ namespace FastShop.Business
     {
         Task<ICollection<ProductListResponse>> GetProducts();
         Task AddProduct (AddProductRequest product);
+        Task<bool> IsExist(int id);
+        Task<ProductListResponse> GetProductById(int id);
     }
 }

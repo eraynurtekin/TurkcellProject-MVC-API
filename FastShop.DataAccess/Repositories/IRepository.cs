@@ -14,5 +14,6 @@ namespace FastShop.DataAccess.Repositories
         Task Delete(int id);
         Task Add(T entity);
         Task Update(T entity);
+        Task <bool> IsExists(int id);
     }
 }

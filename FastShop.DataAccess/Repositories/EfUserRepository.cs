@@ -42,6 +42,11 @@ namespace FastShop.DataAccess.Repositories
             return await context.Users.FindAsync(id);
         }
 
+        public Task<bool> IsExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task Update(User entity)
         {
             context.Users.Update(entity);

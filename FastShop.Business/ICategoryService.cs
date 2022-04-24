@@ -10,6 +10,6 @@ namespace FastShop.Business
 {
     public interface ICategoryService
     {
-        IList<Category> GetCategories();
+        IList<CategoryListResponse> GetCategories();
     }
 }

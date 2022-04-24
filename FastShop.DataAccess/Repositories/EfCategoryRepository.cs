@@ -43,6 +43,11 @@ namespace FastShop.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<bool> IsExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task Update(Category entity)
         {
             throw new NotImplementedException();

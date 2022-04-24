@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FastShop.Dtos.Requests;
 using FastShop.Dtos.Responses;
 using FastShop.Entities.Concrete;
 using System;
@@ -14,7 +15,8 @@ namespace FastShop.Business.MapperProfile
         public MapProfile()
         {
             CreateMap<Product, ProductListResponse>();
-            //CreateMap<Category, CategoryListResponse>();
+            CreateMap<Category, CategoryListResponse>();
+            CreateMap<AddProductRequest, Product>();
         }
         
         

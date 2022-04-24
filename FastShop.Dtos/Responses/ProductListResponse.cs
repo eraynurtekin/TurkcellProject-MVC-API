@@ -8,7 +8,7 @@ namespace FastShop.Dtos.Responses
 {
     public class ProductListResponse
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
         public double? Discount { get; set; }

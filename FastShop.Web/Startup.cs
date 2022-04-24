@@ -83,6 +83,14 @@ namespace FastShop.Web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                  name: "xxxx",
+                  pattern: "Kategori{catid}/Sayfa{page}",
+                  defaults: new { controller = "Home", action = "Index", page = 1 });
+                endpoints.MapControllerRoute(
+                  name: "xxxx",
+                  pattern: "Kategori{catid}",
+                  defaults: new { controller = "Home", action = "Index", catId = 0, page = 1 });
 
                 endpoints.MapControllerRoute(
                    name: "xxxx",

@@ -1,0 +1,7 @@
+﻿@model CartItem
+
+@{
+    var AraToplam = ((double)@Model.Product.UnitPrice) * (1 - @Model.Product.Discount) * Model.Quantity;
+}
+
+  <td class="align-middle">@AraToplam</td>

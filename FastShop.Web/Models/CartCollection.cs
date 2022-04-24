@@ -4,13 +4,10 @@ using System.Linq;
 
 namespace FastShop.Web.Models
 {
-    public class CartItem
-    {
-        public ProductListResponse Product { get; set; }
-        public int Quantity { get; set; }
-    }
+    
     public class CartCollection
     {
+        public int Shipping { get; set; } = 50;
         public List<CartItem> CartItems { get; set; } = new List<CartItem>();
         public void Add(CartItem item)
         {
@@ -24,9 +21,13 @@ namespace FastShop.Web.Models
                 findItem.Quantity += item.Quantity;
             }
         }
+        public double GetSubTotal()
+        {
+            return CartItems.Sum(x => (((double)x.Product.UnitPrice)) * (1 - x.Product.Discount.Value) * x.Quantity ) ;
+        }
         public double GetTotalPrice()
         {
-            return CartItems.Sum(x => (((double)x.Product.UnitPrice)) * (1-x.Product.Discount.Value)* x.Quantity);
+            return CartItems.Sum(x => (((double)x.Product.UnitPrice)) * (1-x.Product.Discount.Value)* x.Quantity) + Shipping;
         }
         public void ClearAll()
         {

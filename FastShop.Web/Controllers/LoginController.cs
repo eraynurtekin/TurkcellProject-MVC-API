@@ -41,10 +41,10 @@ namespace FastShop.Web.Controllers
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
                     await HttpContext.SignInAsync(claimsPrincipal);
                     return RedirectToAction("Index", "Home");
-                    
+
                 }
                 ModelState.AddModelError("login", "Kullanıcı adı veya şifre hatalı");
-                
+
             }
 
             return View();
@@ -53,6 +53,11 @@ namespace FastShop.Web.Controllers
         {
             await HttpContext.SignOutAsync();
             return Redirect("/");
+        }
+        public IActionResult AccessDenied(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
         }
     }
 }

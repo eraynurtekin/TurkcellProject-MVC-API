@@ -25,6 +25,10 @@
             </th>*@
 
             <th>
+                 Status
+               
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ImageUrl)
             </th>
             <th>
@@ -56,7 +60,9 @@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.CategoryId)
                 </td>*@
-
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
                 <td>
                     <img src="@item.ImageUrl" class="img-thumbnail" alt="Alternate Text" />
                 </td>
@@ -65,7 +71,7 @@
                     <a href="/Products/UpdateProducts/@item.ProductId" class="btn btn-outline-primary">Update</a>
                 </td>
                 <td>
-                    <a href="" class="btn btn-outline-danger">Delete</a>
+                    <a href="/Products/Delete/@item.ProductId" class="btn btn-outline-danger">Delete</a>
                 </td>
 
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

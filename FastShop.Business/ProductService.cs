@@ -34,6 +34,12 @@ namespace FastShop.Business
 
         }
 
+        public async Task DeleteProduct(int id)
+        {
+           await productRepository.Delete(id);
+           
+        }
+
         public async Task<ProductListResponse> GetProductById(int id)
         {
             Product product = await productRepository.GetEntityById(id);

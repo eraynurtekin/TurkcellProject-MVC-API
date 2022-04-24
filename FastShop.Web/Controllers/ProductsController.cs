@@ -88,5 +88,23 @@ namespace FastShop.Web.Controllers
             
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await productService.IsExist(id))
+            {
+                var product = await productService.GetProductById(id);
+                return View(product);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ActionName(nameof(Delete))]
+        public async Task<IActionResult> DeleteOk(int id)
+        {
+            await productService.DeleteProduct(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

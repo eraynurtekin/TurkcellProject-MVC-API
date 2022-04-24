@@ -22,5 +22,6 @@ namespace FastShop.Entities.Concrete
         public string ImageUrl { get; set; }
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
+        public bool? IsActive { get; set; } = true;
     }
 }

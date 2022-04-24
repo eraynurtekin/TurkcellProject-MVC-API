@@ -15,5 +15,6 @@ namespace FastShop.Entities.Concrete
         public string Eposta { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+        public bool? IsActive { get; set; } = true;
     }
 }

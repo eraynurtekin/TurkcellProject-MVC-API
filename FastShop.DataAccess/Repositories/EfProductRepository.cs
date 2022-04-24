@@ -20,6 +20,7 @@ namespace FastShop.DataAccess.Repositories
 
         public async Task Add(Product entity)
         {
+            entity.IsActive = true;
             await context.Products.AddAsync(entity);
             await context.SaveChangesAsync();
         }
@@ -27,18 +28,19 @@ namespace FastShop.DataAccess.Repositories
         public async Task Delete(int id)
         {
             var product = await context.Products.FirstOrDefaultAsync(x => x.ProductId == id);
-            context.Products.Remove(product);
+            product.IsActive = false;   
             await context.SaveChangesAsync();
         }
 
         public async Task<IList<Product>> GetAllEntites()
         {
-            return await context.Products.ToListAsync();
+           
+            return await context.Products.Where(x=>x.IsActive == true).ToListAsync();
         }
 
         public async Task<Product> GetEntityById(int id)
         {
-            return await context.Products.FindAsync(id);
+            return await context.Products.Where(x => x.IsActive == true).FirstOrDefaultAsync(x => x.ProductId == id);   
         }
 
         public async Task<bool> IsExists(int id)

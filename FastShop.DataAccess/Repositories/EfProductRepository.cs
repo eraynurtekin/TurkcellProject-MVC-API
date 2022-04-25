@@ -43,6 +43,11 @@ namespace FastShop.DataAccess.Repositories
             return await context.Products.Where(x => x.IsActive == true).FirstOrDefaultAsync(x => x.ProductId == id);   
         }
 
+        public Product GetProduct(int id)
+        {
+            return context.Products.FirstOrDefault(x => x.ProductId == id);
+        }
+
         public async Task<bool> IsExists(int id)
         {
             return await context.Products.AnyAsync(p=>p.ProductId == id);

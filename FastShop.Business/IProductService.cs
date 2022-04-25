@@ -17,5 +17,6 @@ namespace FastShop.Business
         Task<ProductListResponse> GetProductById(int id);
         Task UpdateProduct(UpdateProductRequest product);
         Task DeleteProduct(int id);
+        ProductListResponse GetById(int id);
     }
 }

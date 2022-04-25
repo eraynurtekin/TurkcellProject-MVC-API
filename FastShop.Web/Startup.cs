@@ -1,8 +1,10 @@
+
 using FastShop.Business;
 using FastShop.Business.MapperProfile;
 using FastShop.DataAccess.Data;
 using FastShop.DataAccess.Data.MongoConnections;
 using FastShop.DataAccess.Repositories;
+
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -35,14 +38,14 @@ namespace FastShop.Web
             //services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
             //services.AddSingleton<IMongoDbSettings>(serviceProvider =>
             //serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
-            
+
             services.AddControllersWithViews();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, EfProductRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<ICategoryRepository,EfCategoryRepository>();
+            services.AddScoped<ICategoryRepository, EfCategoryRepository>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository,EfUserRepository>();
+            services.AddScoped<IUserRepository, EfUserRepository>();
 
             var connectionString = Configuration.GetConnectionString("SqlDb");
             services.AddDbContext<FastShopDbContext>(opt => opt.UseSqlServer(connectionString));
@@ -62,8 +65,10 @@ namespace FastShop.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
+                
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -72,6 +77,7 @@ namespace FastShop.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error", "?code={0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -95,7 +101,7 @@ namespace FastShop.Web
                 endpoints.MapControllerRoute(
                    name: "xxxx",
                    pattern: "Kategori{catid}",
-                   defaults: new { controller = "Home", action = "Index",catId=1 });
+                   defaults: new { controller = "Home", action = "Index", catId = 1 });
 
 
                 endpoints.MapControllerRoute(

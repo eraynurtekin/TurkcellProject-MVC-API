@@ -1,18 +1,22 @@
 ﻿using FastShop.Business;
 using FastShop.Dtos.Requests;
 using FastShop.Dtos.Responses;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FastShop.Web.Controllers
 {
+    
     [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
+        
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
 
@@ -42,7 +46,7 @@ namespace FastShop.Web.Controllers
                 await productService.AddProduct(model);
                 return RedirectToAction("Index","Products");
             }
-            
+           
             return View();
         }
 

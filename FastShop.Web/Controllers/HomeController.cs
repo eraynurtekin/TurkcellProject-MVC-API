@@ -32,5 +32,12 @@ namespace FastShop.Web.Controllers
             return View(paginatedPrdoucts);
         }
        
+        [HttpGet]
+        public IActionResult GetDetails(int id)
+        {
+            var product = productService.GetById(id);
+
+            return View(product);
+        }
     }
 }

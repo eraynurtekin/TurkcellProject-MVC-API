@@ -9,5 +9,6 @@ namespace FastShop.DataAccess.Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {
+        Product GetProduct(int id);
     }
 }

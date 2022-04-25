@@ -63,13 +63,13 @@
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="" class="text-decoration-none">
-                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Fast</span>Shop</h1>
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
                 <form action="">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Ürün ara">
+                        <input type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
@@ -105,7 +105,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="/Home/Index/" class="nav-item nav-link active">Anasayfa</a>
+                    <a href="/Home/Index/" class="nav-item nav-link active">Home</a>
                     <a href="shop.html" class="nav-item nav-link">Shop</a>
                     <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                     <div class="nav-item dropdown">
@@ -116,18 +116,18 @@
                             <a href="checkout.html" class="dropdown-item">Checkout</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">İletişim</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <a class="nav-item nav-link" asp-action="Logout" asp-controller="Login">Hoşgeldin @User.Identity.Name (Çıkış Yap) </a>
+                        <a class="nav-item nav-link" asp-action="Logout" asp-controller="Login">Welcome @User.Identity.Name (Exit) </a>
                     }
                     else
                     {
-                        <a class="nav-item nav-link" asp-action="Index" asp-controller="Login">Giriş Yap</a>
+                        <a class="nav-item nav-link" asp-action="Index" asp-controller="Login">Login</a>
                     }
-                    <a href="" class="nav-item nav-link">Üye Ol</a>
+                    <a href="/Users/Register/" class="nav-item nav-link">Register</a>
                 </div>
             </div>
         </nav>

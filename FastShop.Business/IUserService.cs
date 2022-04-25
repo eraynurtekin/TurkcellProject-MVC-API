@@ -1,4 +1,5 @@
-﻿using FastShop.Dtos.Responses;
+﻿using FastShop.Dtos.Requests;
+using FastShop.Dtos.Responses;
 using FastShop.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace FastShop.Business
     {
         IList<UserListResponse> GetUsers();
         User ValidateUser(string userName, string password);
+        User AddUser(AddUserRequest request);
     }
 }

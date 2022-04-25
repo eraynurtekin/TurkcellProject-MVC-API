@@ -11,5 +11,6 @@ namespace FastShop.DataAccess.Repositories
     {
         IList<User> GetAll();
         User ValidateUser(string username,string password);
+        Task<User> Register(User entity);
     }
 }

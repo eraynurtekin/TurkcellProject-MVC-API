@@ -19,6 +19,7 @@ namespace FastShop.Business.MapperProfile
             CreateMap<AddProductRequest, Product>();
             CreateMap<UpdateProductRequest, Product>();
             CreateMap<User, UserListResponse>();
+            CreateMap<AddUserRequest, User>();
         }
         
         

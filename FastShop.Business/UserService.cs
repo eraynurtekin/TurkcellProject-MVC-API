@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FastShop.DataAccess.Repositories;
+using FastShop.Dtos.Requests;
 using FastShop.Dtos.Responses;
 using FastShop.Entities.Concrete;
 using System;
@@ -18,6 +19,13 @@ namespace FastShop.Business
         {
             this.userRepository = userRepository;
             this.mapper = mapper;
+        }
+
+        public User AddUser(AddUserRequest request)
+        {
+            var user = mapper.Map<User>(request);
+            userRepository.Add(user);
+            return user;
         }
 
         public IList<UserListResponse> GetUsers()

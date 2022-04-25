@@ -2,7 +2,7 @@
 using FastShop.Business;
 using FastShop.Business.MapperProfile;
 using FastShop.DataAccess.Data;
-using FastShop.DataAccess.Data.MongoConnections;
+
 using FastShop.DataAccess.Repositories;
 
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -35,9 +35,6 @@ namespace FastShop.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
-            //services.AddSingleton<IMongoDbSettings>(serviceProvider =>
-            //serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 
             services.AddControllersWithViews();
             services.AddScoped<IProductService, ProductService>();

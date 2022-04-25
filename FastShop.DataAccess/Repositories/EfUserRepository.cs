@@ -52,6 +52,13 @@ namespace FastShop.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<User> Register(User entity)
+        {
+            await context.Users.AddAsync(entity);
+            await context.SaveChangesAsync();
+            return entity;
+        }
+
         public async Task Update(User entity)
         {
             context.Users.Update(entity);

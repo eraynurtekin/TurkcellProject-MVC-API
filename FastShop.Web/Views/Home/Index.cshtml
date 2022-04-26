@@ -33,7 +33,7 @@
         <div class="row bg-secondary py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
-                    
+
                     <span class="text-muted px-2">|</span>
                     <a class="text-dark" href="">Yardım</a>
                     <span class="text-muted px-2">|</span>
@@ -84,10 +84,17 @@
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
+
                 <a href="" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
+
+
+                    <span class="badge">0
+                    </span>
+
+
                 </a>
+
             </div>
         </div>
     </div>
@@ -112,7 +119,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             @*<a href="cart.html" class="dropdown-item">Sepetim</a>*@
-                            
+
                             <a href="checkout.html" class="dropdown-item">Checkout</a>
                         </div>
                     </div>
@@ -287,31 +294,32 @@
     <!-- Offer End -->
     <!-- Products Start -->
 
-  <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Trend Ürünler</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
             @foreach (var item in Model)
-           {<div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-               
-               <partial name="_ProductCard" model="@item" />
-                   </div>
-           }
-             
-                
-           
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+
+                    <partial name="_ProductCard" model="@item" />
+                </div>
+            }
+
+
+
         </div>
         <ul class="pagination">
-    @for (int i = 1; i <= ViewBag.TotalPages; i++)
-    {
-        <li class="page-item @(i==ViewBag.CurrentPage ? "active":"")"><a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-catid="@ViewBag.Category">@i</a></li>
-    }
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i==ViewBag.CurrentPage ? "active":"")"><a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-catid="@ViewBag.Category">@i</a></li>
+            }
 
 
-</ul>
+        </ul>
     </div>
-           
+
     <!-- Products End -->
     <!-- Subscribe Start -->
     <div class="container-fluid bg-secondary my-5">
@@ -449,24 +457,24 @@
     <!-- Contact Javascript File -->
     <script src="~/ShopProject/mail/jqBootstrapValidation.min.js"></script>
     <script src="~/ShopProject/mail/contact.js"></script>
-    
+
     <!-- Template Javascript -->
     <script src="~/ShopProject/js/main.js"></script>
     <script>
-    $(document).ready(function () {
-        $('.sepet').on('click', function () {
-            let id = $(this).data('id');
-            $.ajax({
-                url: '/Cart/Add/' + id,
-                type:'GET',
-                dataType: 'json',               
-                success: function (data) {
-                    alertify.success(data);
-                }
+        $(document).ready(function () {
+            $('.sepet').on('click', function () {
+                let id = $(this).data('id');
+                $.ajax({
+                    url: '/Cart/Add/' + id,
+                    type:'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        alertify.success(data);
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>

@@ -9,10 +9,12 @@ namespace FastShop.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IProductService productService;
+        private readonly ICommentService commentService;
 
-        public HomeController(IProductService productService)
+        public HomeController(IProductService productService,ICommentService commentService)
         {
             this.productService = productService;
+            this.commentService = commentService;
         }
 
         public async Task<IActionResult> Index(int page=1 ,int? catId=0)
@@ -36,8 +38,18 @@ namespace FastShop.Web.Controllers
         public IActionResult GetDetails(int id)
         {
             var product = productService.GetById(id);
-
+            ViewBag.Id = id;
             return View(product);
+        }
+        public IActionResult GetCommentCount(int id)
+        {
+            var product = productService.GetById(id);
+            var comment = commentService.GetCommentCountByProduct(product.ProductId);
+            
+            ViewBag.CommentCount = comment;
+            
+            return View();
+
         }
     }
 }

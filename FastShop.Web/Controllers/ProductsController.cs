@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FastShop.Web.Controllers
 {
-    
+
     [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {

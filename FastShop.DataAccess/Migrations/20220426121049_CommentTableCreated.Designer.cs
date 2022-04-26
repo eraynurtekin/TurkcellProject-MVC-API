@@ -4,14 +4,16 @@ using FastShop.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FastShop.DataAccess.Migrations
 {
     [DbContext(typeof(FastShopDbContext))]
-    partial class FastShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220426121049_CommentTableCreated")]
+    partial class CommentTableCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

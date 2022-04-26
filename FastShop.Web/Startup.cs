@@ -1,6 +1,7 @@
 
 using FastShop.Business;
 using FastShop.Business.MapperProfile;
+using FastShop.DataAccess;
 using FastShop.DataAccess.Data;
 
 using FastShop.DataAccess.Repositories;
@@ -43,6 +44,8 @@ namespace FastShop.Web
             services.AddScoped<ICategoryRepository, EfCategoryRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, EfUserRepository>();
+            services.AddScoped<ICommentRepository, EfCommentRepository>();
+            services.AddScoped<ICommentService, CommentService>();
 
             var connectionString = Configuration.GetConnectionString("SqlDb");
             services.AddDbContext<FastShopDbContext>(opt => opt.UseSqlServer(connectionString));

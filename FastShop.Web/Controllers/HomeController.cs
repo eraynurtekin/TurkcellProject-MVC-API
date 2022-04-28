@@ -1,4 +1,5 @@
 ﻿using FastShop.Business;
+using FastShop.Dtos.Requests;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -41,6 +42,8 @@ namespace FastShop.Web.Controllers
             ViewBag.Id = id;
             return View(product);
         }
+
+
         public IActionResult GetCommentCount(int id)
         {
             var product = productService.GetById(id);

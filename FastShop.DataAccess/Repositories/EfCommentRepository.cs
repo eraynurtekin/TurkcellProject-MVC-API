@@ -18,14 +18,22 @@ namespace FastShop.DataAccess.Repositories
             this.context = context;
         }
 
-        public Task Add(Comment entity)
+        public async Task Add(Comment entity)
+        {
+            await context.Comments.AddAsync(entity);
+            await context.SaveChangesAsync();        
+        }
+
+        public int AddComment(Comment comment)
         {
             throw new NotImplementedException();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var comment = await context.Comments.FirstOrDefaultAsync(c =>c.CommentID == id);
+            comment.CommentStatus = false;
+            await context.SaveChangesAsync();   
         }
 
         public List<Comment> GetAllComment()
@@ -35,12 +43,12 @@ namespace FastShop.DataAccess.Repositories
 
         public async Task<IList<Comment>> GetAllEntites()
         {
-            return await context.Comments.ToListAsync();
+            return await context.Comments.Where(c=>c.CommentStatus == true).ToListAsync();
         }
 
         public List<Comment> GetCommentByProductId(int id)
         {
-            var comments = context.Comments.Where(c => c.ProductId == id).ToList();
+            var comments = context.Comments.Where(c => c.ProductId == id && c.CommentStatus == true).ToList();
             return comments;
         }
 
@@ -55,9 +63,9 @@ namespace FastShop.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> IsExists(int id)
+        public async Task<bool> IsExists(int id)
         {
-            throw new NotImplementedException();
+            return await context.Comments.AnyAsync(c => c.CommentID == id);
         }
 
         public Task Update(Comment entity)

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CommentListResponse>
+@{
+    Layout= "~/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CommentUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentDate)
+            </th>
+
+
+            <th>
+                 Status
+               
+            </th>
+            <th>
+                Delete
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentUserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentDate)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentStatus)
+                </td>
+
+                <td>
+                    <a href="/Comment/Delete/@item.CommentID" class="btn btn-outline-danger">Delete</a>
+                </td>
+
+             
+            </tr>
+             
+        }
+    </tbody>
+    </table>

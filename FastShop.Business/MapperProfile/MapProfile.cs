@@ -21,6 +21,7 @@ namespace FastShop.Business.MapperProfile
             CreateMap<User, UserListResponse>();
             CreateMap<AddUserRequest, User>();
             CreateMap<Comment, CommentListResponse>();  
+            CreateMap<AddCommentRequest, Comment>();
         }
         
         

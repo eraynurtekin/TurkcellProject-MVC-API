@@ -13,6 +13,7 @@ namespace FastShop.Dtos.Responses
         public string CommentTitle { get; set; }
         public string CommentContent { get; set; }
         public DateTime CommentDate { get; set; }
+        public bool CommentStatus { get; set; }
 
     }
 }

@@ -35,6 +35,11 @@ namespace FastShop.Business
             return userListResponse;
         }
 
+        public int TotalOfUser()
+        {
+            return userRepository.UserCount();
+        }
+
         public User ValidateUser(string userName, string password)
         {
            var user = userRepository.ValidateUser(userName, password);

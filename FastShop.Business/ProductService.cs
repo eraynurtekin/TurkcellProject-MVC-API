@@ -40,6 +40,14 @@ namespace FastShop.Business
            
         }
 
+        public ICollection<ProductListResponse> GetAllProductsOrderBy()
+        {
+            var products =productRepository.GetAllProducts().OrderByDescending(x => x.CreatedDate).Where(y => y.IsActive == true);
+
+            var productListResponse = mapper.Map<List<ProductListResponse>>(products);
+            return productListResponse;
+        }
+
         public ProductListResponse GetById(int id)
         {
             Product product = productRepository.GetProduct(id);
@@ -67,6 +75,13 @@ namespace FastShop.Business
         public async Task<bool> IsExist(int id)
         {
             return await productRepository.IsExists(id);
+        }
+
+    
+
+        public int TotalOfProduct()
+        {
+           return productRepository.ProductCount();
         }
 
         public async Task UpdateProduct(UpdateProductRequest request)

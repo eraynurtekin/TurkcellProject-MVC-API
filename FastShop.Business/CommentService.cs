@@ -59,5 +59,10 @@ namespace FastShop.Business
         {
             return await commentRepository.IsExists(id);
         }
+
+        public int TotalOfComment()
+        {
+            return commentRepository.CountComment();
+        }
     }
 }

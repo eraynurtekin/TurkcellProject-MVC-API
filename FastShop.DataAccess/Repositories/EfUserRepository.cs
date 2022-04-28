@@ -65,6 +65,11 @@ namespace FastShop.DataAccess.Repositories
             await context.SaveChangesAsync();
         }
 
+        public int UserCount()
+        {
+            return context.Users.Where(u=>u.IsActive==true).Count();   
+        }
+
         public User ValidateUser(string username, string password)
         {
            var user =  context.Users.FirstOrDefault(u => u.UserName == username && u.Password == password);

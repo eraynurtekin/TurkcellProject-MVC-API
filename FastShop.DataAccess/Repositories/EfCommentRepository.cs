@@ -29,6 +29,11 @@ namespace FastShop.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
+        public int CountComment()
+        {
+            return context.Comments.Where(c =>c.CommentStatus == true).Count();
+        }
+
         public async Task Delete(int id)
         {
             var comment = await context.Comments.FirstOrDefaultAsync(c =>c.CommentID == id);

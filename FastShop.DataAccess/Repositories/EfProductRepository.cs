@@ -48,9 +48,20 @@ namespace FastShop.DataAccess.Repositories
             return context.Products.FirstOrDefault(x => x.ProductId == id);
         }
 
+        public ICollection<Product> GetAllProducts()
+        {
+            return context.Products.ToList();
+        }
+
         public async Task<bool> IsExists(int id)
         {
             return await context.Products.AnyAsync(p=>p.ProductId == id);
+        }
+
+        public int ProductCount()
+        {
+            var totalOfCount = context.Products.Where(p=>p.IsActive == true).Count();
+            return totalOfCount;
         }
 
         public async Task Update(Product entity)

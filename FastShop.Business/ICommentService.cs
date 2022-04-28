@@ -1,4 +1,5 @@
-﻿using FastShop.Dtos.Requests;
+﻿
+using FastShop.Dtos.Requests;
 using FastShop.Dtos.Responses;
 using FastShop.Entities.Concrete;
 using System;
@@ -17,6 +18,7 @@ namespace FastShop.Business
         Task<IList<CommentListResponse>> GetAllComments();
         Task DeleteComment(int id);
         Task<bool> IsExist(int id);
+        int TotalOfComment();
 
     }
 }

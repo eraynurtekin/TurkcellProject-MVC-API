@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProductListResponse>
+
+<div class="row">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Last 10 Products</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                              <th>#</th>
+                            <th> Product Name </th>
+                            <th> Description </th>
+                            <th> Date </th>
+                            <th> Details</th>
+                      
+                      
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                           {
+                               
+                         <tr>
+                            <td>
+                              <img src="@item.ImageUrl" class="mr-2" alt="image">
+                            </td>
+                       <td> @item.ProductName</td>
+                            <td>
+                              <label class="badge badge-gradient-success">@item.Description</label>
+                            </td>
+                            <td> @(((DateTime)item.CreatedDate).ToString("dd-MMM-yyyyy")) </td>
+                        <td>
+                            <a href="/Home/GetDetails/@item.ProductId" class="btn-sm btn-dark">Details</a>
+                        </td>
+                          </tr>
+                            }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>

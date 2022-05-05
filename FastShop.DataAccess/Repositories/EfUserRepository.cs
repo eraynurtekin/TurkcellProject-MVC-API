@@ -42,6 +42,11 @@ namespace FastShop.DataAccess.Repositories
             return await context.Users.ToListAsync();
         }
 
+        public User GetByUserName(string username)
+        {
+            return context.Users.FirstOrDefault(x => x.UserName == username);   
+        }
+
         public async Task<User> GetEntityById(int id)
         {
             return await context.Users.FindAsync(id);

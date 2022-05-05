@@ -39,7 +39,11 @@ namespace FastShop.Web.Controllers
 
                     ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+                   
                     await HttpContext.SignInAsync(claimsPrincipal);
+
+                    
+
                     return RedirectToAction("Index", "Home");
 
                 }

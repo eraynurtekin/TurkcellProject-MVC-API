@@ -15,5 +15,6 @@ namespace FastShop.Business
         User ValidateUser(string userName, string password);
         User AddUser(AddUserRequest request);
         int TotalOfUser();
+        UserListResponse GetUserByUserName(string username);
     }
 }

@@ -28,6 +28,13 @@ namespace FastShop.Business
             return user;
         }
 
+        public UserListResponse GetUserByUserName(string username)
+        {
+            User user = userRepository.GetByUserName(username);
+            var userListResponse = mapper.Map<UserListResponse>(user);
+            return userListResponse;
+        }
+
         public IList<UserListResponse> GetUsers()
         {
             var users = userRepository.GetAll();

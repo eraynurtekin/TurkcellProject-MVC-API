@@ -13,5 +13,6 @@ namespace FastShop.DataAccess.Repositories
         User ValidateUser(string username,string password);
         Task<User> Register(User entity);
         int UserCount();
+        User GetByUserName(string username);   
     }
 }

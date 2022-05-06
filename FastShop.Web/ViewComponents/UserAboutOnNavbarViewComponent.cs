@@ -5,11 +5,11 @@ using System.Security.Claims;
 
 namespace FastShop.Web.ViewComponents
 {
-    public class UserAboutOnDashboardViewComponent : ViewComponent
+    public class UserAboutOnNavbarViewComponent : ViewComponent
     {
         private readonly IUserService userService;
 
-        public UserAboutOnDashboardViewComponent(IUserService userService)
+        public UserAboutOnNavbarViewComponent(IUserService userService)
         {
             this.userService = userService;
         }
@@ -20,7 +20,9 @@ namespace FastShop.Web.ViewComponents
             
             var userInformation = userService.GetUserByUserName(userName);
             var role = userInformation.Role;
+            var fullName = userInformation.FullName;
             ViewBag.Role = role;
+            ViewBag.FullName = fullName;
 
             return View();
         }

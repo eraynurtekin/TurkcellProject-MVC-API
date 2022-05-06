@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FastShop.Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Editor,User")]
     public class DashboardController : Controller
     {
         private readonly IProductService productService;
@@ -19,6 +19,10 @@ namespace FastShop.Web.Controllers
 
         public IActionResult Index()
         {
+            var user = User.Identity.Name;
+            ViewBag.User = user;
+
+
             var totalOfProduct = productService.TotalOfProduct();
             ViewBag.TotalOfProduct = totalOfProduct;
 

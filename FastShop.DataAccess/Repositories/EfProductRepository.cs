@@ -69,5 +69,7 @@ namespace FastShop.DataAccess.Repositories
             context.Products.Update(entity);
             await context.SaveChangesAsync();
         }
+
+        
     }
 }

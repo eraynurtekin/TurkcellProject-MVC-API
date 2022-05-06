@@ -150,9 +150,14 @@
                                         <i class="far fa-star"></i>
                                     </div>
                                 </div>
-                                @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
-                     
-                                @*@await Component.InvokeAsync("CommentAdd")*@
+                              @*  @await Html.PartialAsync("~/Views/Home/PartialAddComment.cshtml")*@
+                              
+                                 <partial name="_Comment"   />
+                             
+                                  
+                             
+                               
+                                @*@await Component.InvokeAsync("CommentAdd",new{id = ViewBag.ID})*@
                             </div>
                         </div>
                     </div>

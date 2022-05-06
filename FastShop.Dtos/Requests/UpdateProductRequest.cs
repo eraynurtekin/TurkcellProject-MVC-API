@@ -19,5 +19,7 @@ namespace FastShop.Dtos.Requests
         public string Description { get; set; }
         public int? CategoryId { get; set; }
         public string ImageUrl { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
     }
 }

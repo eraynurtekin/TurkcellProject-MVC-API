@@ -45,17 +45,17 @@ namespace FastShop.Web.Controllers
 
         //    return PartialView();
         //}
-        [AllowAnonymous]
-        [HttpPost]
-        public async Task<PartialViewResult> PartialAddComment(AddCommentRequest model)
-        {
+        //[AllowAnonymous]
+        //[HttpPost]
+        //public async Task<PartialViewResult> PartialAddComment(AddCommentRequest model,int id)
+        //{
 
-            model.CreatedDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            model.CommentStatus = true;
-            model.ProductId = 3;
-            await commentService.AddComment(model);
-            return PartialView();
-        }
+        //    model.CreatedDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+        //    model.CommentStatus = true;
+        //    model.ProductId = id;
+        //    await commentService.AddComment(model);
+        //    return PartialView();
+        //}
 
     }
 

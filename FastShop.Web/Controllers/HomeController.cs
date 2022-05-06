@@ -22,7 +22,7 @@ namespace FastShop.Web.Controllers
         {
             var productsFromService = await productService.GetProducts();
             var products = catId == 0 ? productsFromService.ToList() : productsFromService.Where(p => p.CategoryId == catId).ToList();
-            var productsPerPage = 6;
+            var productsPerPage = 8;
 
             var paginatedPrdoucts = products.OrderBy(x => x.ProductId)
                                             .Skip((page - 1) * productsPerPage)
@@ -39,20 +39,29 @@ namespace FastShop.Web.Controllers
         public IActionResult GetDetails(int id)
         {
             var product = productService.GetById(id);
+
+            var comment = commentService.GetCommentCountByProduct(product.ProductId);
+            ViewBag.CommentCount = comment;
             ViewBag.Id = id;
             return View(product);
         }
-
-
-        public IActionResult GetCommentCount(int id)
+        [HttpGet]
+        public PartialViewResult PartialAddComment(int id)
         {
-            var product = productService.GetById(id);
-            var comment = commentService.GetCommentCountByProduct(product.ProductId);
-            
-            ViewBag.CommentCount = comment;
-            
-            return View();
-
+            ViewBag.ID = id;
+            return PartialView();
         }
+        [HttpPost]
+        public async Task<PartialViewResult> PartialAddComment(AddCommentRequest model)
+        {
+
+            model.CreatedDate = DateTime.Now;
+            model.CommentStatus = true;
+            model.ProductScore = 5;
+            await commentService.AddComment(model);
+            return PartialView();
+        }
+
+       
     }
 }

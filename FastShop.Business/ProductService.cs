@@ -77,8 +77,6 @@ namespace FastShop.Business
             return await productRepository.IsExists(id);
         }
 
-    
-
         public int TotalOfProduct()
         {
            return productRepository.ProductCount();
@@ -86,6 +84,7 @@ namespace FastShop.Business
 
         public async Task UpdateProduct(UpdateProductRequest request)
         {
+            request.CreatedDate = DateTime.Now;
             var product = mapper.Map<Product>(request);
             await productRepository.Update(product);
         

@@ -12,5 +12,6 @@ namespace FastShop.DataAccess.Repositories
         Product GetProduct(int id);
         int ProductCount();
         ICollection<Product> GetAllProducts();
+        
     }
 }

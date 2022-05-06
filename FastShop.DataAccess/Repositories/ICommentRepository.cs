@@ -15,6 +15,7 @@ namespace FastShop.DataAccess
         int GetCommentCounts(int id);
         int AddComment(Comment comment);
         int CountComment();
+
         
     }
 }

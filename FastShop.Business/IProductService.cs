@@ -20,6 +20,7 @@ namespace FastShop.Business
         Task DeleteProduct(int id);
         ProductListResponse GetById(int id);
         int TotalOfProduct();
+      
      
     }
 }

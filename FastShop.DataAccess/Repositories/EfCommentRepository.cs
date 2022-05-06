@@ -20,6 +20,7 @@ namespace FastShop.DataAccess.Repositories
 
         public async Task Add(Comment entity)
         {
+            entity.CommentDate = DateTime.Now;
             await context.Comments.AddAsync(entity);
             await context.SaveChangesAsync();        
         }
@@ -28,6 +29,8 @@ namespace FastShop.DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+
+       
 
         public int CountComment()
         {

@@ -21,7 +21,6 @@ namespace FastShop.Business
             this.commentRepository = commentRepository;
             this.mapper = mapper;
         }
-
         public async Task AddComment(AddCommentRequest request)
         {
             var comment = mapper.Map<Comment>(request);
@@ -64,5 +63,7 @@ namespace FastShop.Business
         {
             return commentRepository.CountComment();
         }
+
+       
     }
 }

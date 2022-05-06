@@ -19,6 +19,7 @@ namespace FastShop.Business
         Task DeleteComment(int id);
         Task<bool> IsExist(int id);
         int TotalOfComment();
+        
 
     }
 }

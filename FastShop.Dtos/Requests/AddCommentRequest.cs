@@ -21,6 +21,6 @@ namespace FastShop.Dtos.Requests
         public DateTime CreatedDate { get; set; }
         public bool CommentStatus { get; set; }
         public int ProductId { get; set; }
-       public int? ProductScore { get; set; }
+ 
     }
 }

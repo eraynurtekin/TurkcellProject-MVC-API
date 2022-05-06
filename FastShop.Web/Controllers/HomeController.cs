@@ -57,7 +57,6 @@ namespace FastShop.Web.Controllers
 
             model.CreatedDate = DateTime.Now;
             model.CommentStatus = true;
-            model.ProductScore = 5;
             await commentService.AddComment(model);
             return PartialView();
         }

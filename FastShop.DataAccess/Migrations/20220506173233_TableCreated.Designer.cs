@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FastShop.DataAccess.Migrations
 {
     [DbContext(typeof(FastShopDbContext))]
-    [Migration("20220426121049_CommentTableCreated")]
-    partial class CommentTableCreated
+    [Migration("20220506173233_TableCreated")]
+    partial class TableCreated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,9 +64,6 @@ namespace FastShop.DataAccess.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductScore")
-                        .HasColumnType("int");
-
                     b.HasKey("CommentID");
 
                     b.HasIndex("ProductId");
@@ -80,6 +77,9 @@ namespace FastShop.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
@@ -129,6 +129,9 @@ namespace FastShop.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsActive")

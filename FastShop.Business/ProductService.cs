@@ -29,6 +29,7 @@ namespace FastShop.Business
 
         public async Task AddProduct(AddProductRequest request)
         {
+            request.CreatedDate = DateTime.Now;
             var product = mapper.Map<Product>(request);
             await productRepository.Add(product);
 

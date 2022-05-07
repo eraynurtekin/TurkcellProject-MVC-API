@@ -24,6 +24,7 @@
 
             <div class="col-lg-7 pb-5">
                 <h3 class="font-weight-semi-bold">@Model.ProductName</h3>
+                <h5 class="font-weight-semi-bold">@Model.Brand</h5>
                 <div class="d-flex mb-3">
                     <div class="text-primary mr-2">
                         <small class="fas fa-star"></small>
@@ -32,10 +33,10 @@
                         <small class="fas fa-star-half-alt"></small>
                         <small class="far fa-star"></small>
                     </div>
-                    
+                    <del>@Model.UnitPrice ₺</del>
                 </div>
-             
-                    <h3 class="font-weight-semi-bold mb-4">@Model.UnitPrice ₺</h3>
+            
+                    <h6 class="text-truncate ml-1">@((double)Model.UnitPrice * (1-Model.Discount)) ₺</h6>
                 <p class="mb-4">@Model.Description</p>
                 
                <div class="d-flex mb-3">
@@ -146,14 +147,7 @@
                                         <i class="far fa-star"></i>
                                     </div>
                                 </div>
-                              @*  @await Html.PartialAsync("~/Views/Home/PartialAddComment.cshtml")*@
-                              
                                  <partial name="_Comment"   />
-                             
-                                  
-                             
-                               
-                                @*@await Component.InvokeAsync("CommentAdd",new{id = ViewBag.ID})*@
                             </div>
                         </div>
                     </div>

@@ -11,6 +11,7 @@ namespace FastShop.Dtos.Responses
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
+        public string Brand { get; set; }
         public double? Discount { get; set; }
         public string Description { get; set; }
         public int? CategoryId { get; set; }

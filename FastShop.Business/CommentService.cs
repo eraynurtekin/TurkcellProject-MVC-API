@@ -42,6 +42,7 @@ namespace FastShop.Business
         public int GetCommentCountByProduct(int id)
         {
             var commentCount = commentRepository.GetCommentCounts(id);
+
             return commentCount;
         }
 

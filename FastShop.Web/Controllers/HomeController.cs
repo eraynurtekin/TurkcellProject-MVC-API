@@ -39,8 +39,9 @@ namespace FastShop.Web.Controllers
         public IActionResult GetDetails(int id)
         {
             var product = productService.GetById(id);
-
+            
             var comment = commentService.GetCommentCountByProduct(product.ProductId);
+
             ViewBag.CommentCount = comment;
             ViewBag.Id = id;
             return View(product);

@@ -12,10 +12,11 @@ namespace FastShop.Dtos.Requests
         [Required(ErrorMessage = "Ürün adını boş bırakmayınız")]
         [MinLength(3, ErrorMessage = "Ürün adı en az üç karakter olmalıdır")]
         public string ProductName { get; set; }
-        [Required(ErrorMessage = "Ürün fiyatını boş bırakmayınız")]
-        [DataType(DataType.Currency)]
+        [Required(ErrorMessage = "Ürün markasını boş bırakmayınız")]
         public string Brand { get; set; }
         public int Stock { get; set; }
+        [Required(ErrorMessage = "Ürün fiyatını boş bırakmayınız")]
+        [DataType(DataType.Currency)]
         public decimal UnitPrice { get; set; }
         public DateTime CreatedDate { get; set; }
         public double? Discount { get; set; }

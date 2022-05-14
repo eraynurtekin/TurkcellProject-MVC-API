@@ -28,6 +28,13 @@ namespace FastShop.Business
             return user;
         }
 
+        public async Task<IList<UserListResponse>> GetAllUsersAsync()
+        {
+            var users = await userRepository.GetAllEntites();
+            var userListResponse = mapper.Map<List<UserListResponse>>(users);
+            return userListResponse;
+        }
+
         public UserListResponse GetUserByUserName(string username)
         {
             User user = userRepository.GetByUserName(username);

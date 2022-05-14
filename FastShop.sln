@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastShop.Business", "FastSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastShop.Web", "FastShop.Web\FastShop.Web.csproj", "{4F64BB33-B991-43F8-A159-E0B31BF25279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastShop.Dtos", "FastShop.Dtos\FastShop.Dtos.csproj", "{A8CD571A-A6B9-46C5-A132-A95872FB0070}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastShop.Dtos", "FastShop.Dtos\FastShop.Dtos.csproj", "{A8CD571A-A6B9-46C5-A132-A95872FB0070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastShop.API", "FastShop.API\FastShop.API.csproj", "{F5DD46B1-5EC5-499F-BD1B-6B28931652AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A8CD571A-A6B9-46C5-A132-A95872FB0070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8CD571A-A6B9-46C5-A132-A95872FB0070}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8CD571A-A6B9-46C5-A132-A95872FB0070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DD46B1-5EC5-499F-BD1B-6B28931652AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DD46B1-5EC5-499F-BD1B-6B28931652AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DD46B1-5EC5-499F-BD1B-6B28931652AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DD46B1-5EC5-499F-BD1B-6B28931652AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

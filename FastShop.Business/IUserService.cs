@@ -11,6 +11,7 @@ namespace FastShop.Business
 {
     public interface IUserService 
     {
+        Task<IList<UserListResponse>> GetAllUsersAsync();
         IList<UserListResponse> GetUsers();
         User ValidateUser(string userName, string password);
         User AddUser(AddUserRequest request);

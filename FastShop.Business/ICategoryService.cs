@@ -11,5 +11,6 @@ namespace FastShop.Business
     public interface ICategoryService
     {
         IList<CategoryListResponse> GetCategories();
+        Task<IList<CategoryListResponse>> GetAllCategory();
     }
 }

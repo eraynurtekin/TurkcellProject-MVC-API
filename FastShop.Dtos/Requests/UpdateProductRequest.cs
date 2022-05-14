@@ -15,6 +15,8 @@ namespace FastShop.Dtos.Requests
         public string ProductName { get; set; }
         [DataType(DataType.Currency)]
         public double? UnitPrice { get; set; }
+        [Required(ErrorMessage = "Ürün markasını boş bırakmayınız")]
+        public string Brand { get; set; }
         public double? Discount { get; set; }
         public string Description { get; set; }
         public int? CategoryId { get; set; }

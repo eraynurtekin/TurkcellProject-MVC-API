@@ -22,6 +22,14 @@ namespace FastShop.Business
             this.mapper = mapper;
         }
 
+        public async Task<IList<CategoryListResponse>> GetAllCategory()
+        {
+            var categories = await categoryRepository.GetAllEntites();
+
+            var categoriesListResponse = mapper.Map<IList<CategoryListResponse>>(categories);
+            return categoriesListResponse;
+        }
+
         public IList<CategoryListResponse> GetCategories()
         {
             var categories = categoryRepository.GetAll();

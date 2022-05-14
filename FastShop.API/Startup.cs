@@ -64,7 +64,15 @@ namespace FastShop.API
                  builder.AllowAnyHeader();
              }));
 
-
+            services.AddMemoryCache();  
+            services.AddResponseCaching();
+            //services.AddDistributedSqlServerCache(options =>
+            //{
+            //    options.ConnectionString =
+            //        _config["DistCache_ConnectionString"];
+            //    options.SchemaName = "dbo";
+            //    options.TableName = "TestCache";
+            //});
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Sisteme giriþ yapacaðýnýz key alanýdýr."));
 

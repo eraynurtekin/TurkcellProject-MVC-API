@@ -1,4 +1,5 @@
-﻿using FastShop.API.Filters;
+﻿using FastShop.API.Extensions;
+using FastShop.API.Filters;
 using FastShop.Business;
 using FastShop.Dtos.Requests;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +28,7 @@ namespace FastShop.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            logger.LogInformation($"Bu action, {DateTime.Now} anında çalıştı.");
+            logger.LogInformation($"Bu action, {DateTime.Now} anında çalıştı ve bütün ürünleri getirdi.");
             var products = await productService.GetProducts();
             return Ok(products);
         }
@@ -35,7 +36,9 @@ namespace FastShop.API.Controllers
         [IsExist]
         public async Task<IActionResult> GetProductsById(int id)
         {
+            
             var product = await productService.GetProductById(id);
+            logger.LogInformation($"Bu action, {DateTime.Now} anında çalıştı ve {product.ProductName} adlı ürünü getirdi.");
             return Ok(product);
         }
         [HttpPost]
@@ -67,11 +70,16 @@ namespace FastShop.API.Controllers
             return BadRequest(ModelState);
         }
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Admin,Editor")]
         [IsExist]
         public async Task<IActionResult> Delete(int id)
         {
+            var user = User.Identity.Name;
             await productService.DeleteProduct(id);
-            return Ok();
+            var text = $" {DateTime.Now} tarihinde {id}'li ürün {user} kişisi tarafından silindi!";
+            logger.LogInformation(text);
+            await WriteToFileAsync(text);
+            return Ok(CommonExtensions.ErrorDeleteMessage(id));
         }
 
         public static async Task WriteToFileAsync(string text)

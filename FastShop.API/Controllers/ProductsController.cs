@@ -54,7 +54,7 @@ namespace FastShop.API.Controllers
                 logger.LogInformation(text);            
                 await WriteToFileAsync(text);
 
-                return Ok();
+                return Ok(CommonExtensions.AddSuccessfulMessage(request));
             }
             return BadRequest(ModelState);
         }
@@ -62,10 +62,14 @@ namespace FastShop.API.Controllers
         [IsExist]
         public async Task<IActionResult> UpdateProduct(int id, UpdateProductRequest request)
         {
+            
             if (ModelState.IsValid)
             {
                 await productService.UpdateProduct(request);
-                return Ok();
+                var text = $" {DateTime.Now} tarihinde {id}'li ürün güncellendi!";
+                logger.LogInformation(text);
+                await WriteToFileAsync(text);
+                return Ok(CommonExtensions.UpdateSuccessfulMessage(request,id));
             }
             return BadRequest(ModelState);
         }
